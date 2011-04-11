@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="caefer_public" pattern="/">
+        <default key="_controller">CaeferFacebookAppBundle:Default:index</default>
+    </route>
+
+    <route id="caefer_secure" pattern="/secure/">
+        <default key="_controller">CaeferFacebookAppBundle:Default:secure</default>
+    </route>
+
+    <route id="caefer_anothersecure" pattern="/anothersecure/">
+        <default key="_controller">CaeferFacebookAppBundle:Default:anothersecure</default>
+    </route>
+
+    <route id="caefer_fboauth" pattern="/_fboauth/{perms}">
+        <default key="_controller">CaeferFacebookAppBundle:Default:auth</default>
+    </route>
+
+    <!--
+    <route id="_security_login" pattern="/login">
+        <default key="_controller">SecurityBundle:Security:login</default>
+    </route>
+    -->
+
+    <route id="_security_check" pattern="/login_check" />
+</routes>

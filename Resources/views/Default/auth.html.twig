@@ -1,0 +1,13 @@
+Auth! <a href="{{ path('caefer_secure') }}">to secure</a>
+
+<div id="fb-root"></div>
+    <script>
+      var FBAppData = {
+        appId:'{{ app_id }}',
+        session:{{ session|raw }},
+        requestedPermissions:{{ perms|json_encode|raw }},
+        successUrl:'{{ path('caefer_secure') }}',
+        failureUrl:'{{ path('caefer_public') }}'
+      };
+    </script>
+    <script type="text/javascript" src="{{ asset('bundles/caeferfacebookapp/js/auth.js') }}"></script>

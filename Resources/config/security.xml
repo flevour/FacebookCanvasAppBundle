@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+      <parameter key="caefer_facebookapp.permissions" type="collection">
+        <parameter>read_stream</parameter>
+      </parameter>
+      <parameter key="security.authorization.voter.class">Caefer\FacebookAppBundle\Security\Authorization\Voter\FacebookPermissionVoter</parameter>
+    </parameters>
+
+    <services>
+        <service id="security.authorization.voter" class="%security.authorization.voter.class%"> 
+            <tag name="security.voter" />
+        </service>
+
+        <service id="caefer_facebookapp.access_denied_handler" class="Caefer\FacebookAppBundle\Security\Authorization\FacebookPermissionNotGrantedHandler">
+            <argument type="service" id="security.access_map" />
+            <argument type="service" id="security.context" />
+            <argument type="service" id="security.authorization.voter" />
+            <argument type="service" id="http_kernel" />
+        </service>
+
+        <service id="caefer_facebookapp.api" class="Facebook"> 
+            <argument type="collection">
+              <argument key="appId">123135494428911</argument>
+              <argument key="secret">606536e73b92ca0d90dcd4a849b9eb02</argument>
+              <argument key="cookie">true</argument>
+            </argument>
+        </service>
+
+        <service id="caefer_facebookapp.auth" class="Caefer\FacebookAppBundle\Security\Authentication\Provider\FacebookAppProvider" public="false">
+            <argument type="service" id="caefer_facebookapp.api" />
+        </service>
+
+        <service id="caefer_facebookapp.security.authentication.listener"
+                 class="Caefer\FacebookAppBundle\Security\Firewall\FacebookAppListener"
+                 parent="security.authentication.listener.abstract"
+                 abstract="true">
+        </service>
+
+        <service id="caefer_facebookapp.security.authentication.entry_point" class="Caefer\FacebookAppBundle\Security\EntryPoint\FacebookAppAuthenticationEntryPoint" public="false" abstract="true">
+            <argument type="service" id="caefer_facebookapp.api" />
+            <argument type="collection" />
+            <argument type="service" id="security.access_map" />
+            <argument type="service" id="http_kernel" />
+        </service>
+
+    </services>
+</container>
