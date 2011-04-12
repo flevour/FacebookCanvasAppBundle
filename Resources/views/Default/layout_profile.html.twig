@@ -1,0 +1,20 @@
+{% extends "FacebookCanvasAppBundle::base.html.twig" %}
+
+{% block fb_stylesheets %}
+    <link href="{{ asset('bundles/caeferfacebookcanvasapp/css/profile/screen.css') }}" rel="stylesheet" type="text/css" media="screen, projection"/>
+    <link href="{{ asset('bundles/caeferfacebookcanvasapp/css/profile/print.css') }}" rel="stylesheet" type="text/css" media="print"/>
+    <!--[if lt IE 8]><link href="{{ asset('bundles/caeferfacebookcanvasapp/css/profile/ie.css') }}" rel="stylesheet" type="text/css" media="screen, projection"><![endif]-->
+    {% block stylesheets '' %}
+{% endblock %}
+
+{% block fb_javascripts %}
+    {% block javascripts '' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container{% if debug %} showgrid{% endif %}">
+        <div class="span-15 last">
+            {% block content 'This is the layout for the profile tab' %}
+        </div>
+    </div>
+{% endblock %}

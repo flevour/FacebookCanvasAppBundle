@@ -1,0 +1,23 @@
+{% extends "CaeferFacebookCanvasAppBundle:Default:layout_app.html.twig" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+
+{% block content %}
+    <div class="span-5">
+        <ul>
+          <li><strong>public</strong></li>
+          <li><a href="{{ path('caefer_secure_1') }}">secure 1</a></li>
+          <li><a href="{{ path('caefer_secure_2') }}">secure 2</a></li>
+        </ul>
+    </div>
+    <div class="span-16 push-1 last">
+        <h1>Public!</h1>
+        <p>
+            This page is not secured and available for all users.
+        </p>
+    </div>
+{% endblock %}

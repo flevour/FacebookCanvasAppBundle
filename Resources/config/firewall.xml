@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <config>
+        <firewall pattern=".*" access_denied_handler="caefer_facebook_canvas_app.access_denied_handler">
+            <caefer_facebook_canvas_app />
+            <anonymous />
+        </firewall>
+    </config>
+</container>
+<!--
+    access_control:
+        - { path: /secure/,        role: [FACEBOOK_PERMISSION_READ_STREAM,FACEBOOK_PERMISSION_PUBLISH_STREAM] }
+        - { path: /anothersecure/, role: [FACEBOOK_PERMISSION_READ_STREAM,FACEBOOK_PERMISSION_CREATE_EVENT] }
+        - { path: /,               role: [IS_AUTHENTICATED_ANONYMOUSLY] }
+-->

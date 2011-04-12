@@ -1,0 +1,12 @@
+security:
+    factories:
+        - "%kernel.root_dir%/../src/Caefer/FacebookCanvasAppBundle/Resources/config/security_factories.xml"
+    providers:
+        caefer_facebook_canvas_app:
+            id: caefer_facebook_canvas_app.auth
+    firewalls:
+        facebook_app:
+            pattern: .*
+            caefer_facebook_canvas_app: true
+            anonymous: true
+            access_denied_handler: caefer_facebook_canvas_app.access_denied_handler

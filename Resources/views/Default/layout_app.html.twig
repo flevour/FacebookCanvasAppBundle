@@ -1,0 +1,21 @@
+{% extends "CaeferFacebookCanvasAppBundle::base.html.twig" %}
+
+{% block fb_stylesheets %}
+    <link href="{{ asset('bundles/caeferfacebookcanvasapp/css/app/screen.css') }}" rel="stylesheet" type="text/css" media="screen, projection"/>
+    <link href="{{ asset('bundles/caeferfacebookcanvasapp/css/app/print.css') }}" rel="stylesheet" type="text/css" media="print"/>
+    <!--[if lt IE 8]><link href="{{ asset('bundles/caeferfacebookcanvasapp/css/app/ie.css') }}" rel="stylesheet" type="text/css" media="screen, projection"><![endif]-->
+    <link href="{{ asset('bundles/caeferfacebookcanvasapp/css/app/facebook.css') }}" rel="stylesheet" type="text/css" media="screen, projection"/>
+    {% block stylesheets '' %}
+{% endblock %}
+
+{% block fb_javascripts %}
+    {% block javascripts '' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container{% if debug %} showgrid{% endif %}">
+        <div class="span-22 last fb-app">
+            {% block content 'This is the layout for the main app' %}
+        </div>
+    </div>
+{% endblock %}

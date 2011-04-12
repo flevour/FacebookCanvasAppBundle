@@ -1,4 +1,4 @@
-Auth! <a href="{{ path('caefer_secure') }}">to secure</a>
+Please authorize this application.
 
 <div id="fb-root"></div>
     <script>
@@ -6,8 +6,7 @@ Auth! <a href="{{ path('caefer_secure') }}">to secure</a>
         appId:'{{ app_id }}',
         session:{{ session|raw }},
         requestedPermissions:{{ perms|json_encode|raw }},
-        successUrl:'{{ path('caefer_secure') }}',
-        failureUrl:'{{ path('caefer_public') }}'
+        checkUrl:'{{ path('_caefer_facebook_canvas_app_security_check') }}'
       };
     </script>
     <script type="text/javascript" src="{{ asset('bundles/caeferfacebookcanvasapp/js/auth.js') }}"></script>

@@ -1,0 +1,45 @@
+.container {margin: 0 auto 0 0}
+.fb-app
+{
+    background: url(/bundles/facebookbase/images/fbline.gif) repeat-y 0 0 transparent;
+    font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    color: #333333;
+}
+
+.fb-app a
+{
+    color: #3b5998;
+    outline-style: none;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.fb-app a:hover
+{
+    text-decoration: underline;
+}
+
+.fb-box-grey, .fb-box-blue, .fb-box-info, .fb-box-error { padding: 10px; font-size: 13px; font-weight: bold; color: #333333; }
+.fb-box-grey  { background-color: #f7f7f7; border: 1px solid #cccccc; }
+.fb-box-blue  { background-color: #eceff6; border: 1px solid #d4dae8; }
+.fb-box-info  { background-color: #fff9d7; border: 1px solid #e2c822; }
+.fb-box-error { background-color: #ffebe8; border: 1px solid #dd3c10; }
+
+.fb-ruler { margin-top: 15px; margin-bottom: 15px; width: 520px; height: 1px; background-color: #d8dfea; margin-left:-23px;width:561px; }
+.fb-ruler-sb { margin-top: 8px; margin-bottom: 6px; width: 520px; height: 1px; background-color: #eee; width:180px; }
+.fb-tab { padding: 8px; background-color: #d8dfea; color: #3b5998; font-weight: bold; float: left; margin-right: 4px; text-decoration: none; }
+.fb-tab:hover { background-color: #3b5998; color: #ffffff; cursor: hand; }
+        
+a.fb-menu-item { display:block; margin-right:-16px; color:#000; font-weight:normal; border-bottom:1px solid #fff; display:block; line-height:13px; padding:3px 8px 4px 28px; position:relative; cursor:pointer; }
+a.fb-menu-item:hover  { background:#EFF2F7; text-decoration:none; }
+.fb-menu-item.active { background:#D8DFEA; font-weight:bold; }
+.fb-menu-item .cnt { font-size:9px; color:#3B5998; float:right; }
+.fb-menu-item .img { left:5px; position:absolute; text-align:center; top:2px; width:18px; }
+.fb-menu-item .txt {  }
+
+.fb-tab2 { display:block; padding:3px 0 6px; position:relative; line-height:22px; list-style-type:none; margin:0; }
+.fb-tab2-legend { font-weight:bold; color:#808080; float:left; }
+.fb-tab2-item { padding-left:10px; float:left;  }
+.fb-tab2-item.active a { text-decoration:underline; font-style:italic; }

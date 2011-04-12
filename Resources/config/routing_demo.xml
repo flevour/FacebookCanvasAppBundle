@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="caefer_public" pattern="/">
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Demo:index</default>
+    </route>
+
+    <route id="caefer_secure_1" pattern="/secure-1/">
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Demo:secure1</default>
+    </route>
+
+    <route id="caefer_secure_2" pattern="/secure-2/">
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Demo:secure2</default>
+    </route>
+</routes>

@@ -51,8 +51,7 @@ window.FBApp={
   },
   resolve:function(success)
   {
-    window.location.href = '/app_dev.php/login_check';
-    //window.location.href = 'http://dev.local/app_dev.php/login_check';
+    window.location.href = FBAppData.checkUrl;
   } 
 }
 
@@ -67,5 +66,9 @@ window.fbAsyncInit = function() {
   var e = document.createElement('script');
   e.src = document.location.protocol + '//connect.facebook.net/de_DE/all.js';
   e.async = true;
+  document.getElementById('fb-root').appendChild(e);
+  var e = document.createElement('a');
+  e.appendChild(document.createTextNode('click'));
+  e.href="javascript:FB.getLoginStatus(FBApp.checkLoginStatusResponse)"
   document.getElementById('fb-root').appendChild(e);
 }());
