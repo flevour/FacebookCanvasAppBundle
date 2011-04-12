@@ -5,19 +5,19 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="caefer_public" pattern="/">
-        <default key="_controller">CaeferFacebookAppBundle:Default:index</default>
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Default:index</default>
     </route>
 
     <route id="caefer_secure" pattern="/secure/">
-        <default key="_controller">CaeferFacebookAppBundle:Default:secure</default>
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Default:secure</default>
     </route>
 
     <route id="caefer_anothersecure" pattern="/anothersecure/">
-        <default key="_controller">CaeferFacebookAppBundle:Default:anothersecure</default>
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Default:anothersecure</default>
     </route>
 
     <route id="caefer_fboauth" pattern="/_fboauth/{perms}">
-        <default key="_controller">CaeferFacebookAppBundle:Default:auth</default>
+        <default key="_controller">CaeferFacebookCanvasAppBundle:Default:auth</default>
     </route>
 
     <!--

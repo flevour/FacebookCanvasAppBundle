@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="caefer_facebookapp.auth.factory" class="Caefer\FacebookAppBundle\DependencyInjection\Security\Factory\FacebookAppFactory" public="false">
+        <service id="caefer_facebook_canvas_app.auth.factory" class="Caefer\FacebookCanvasAppBundle\DependencyInjection\Security\Factory\FacebookCanvasAppFactory" public="false">
             <tag name="security.listener.factory" />
         </service>
     </services>

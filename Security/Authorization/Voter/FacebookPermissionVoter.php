@@ -1,6 +1,6 @@
 <?php
 
-namespace Caefer\FacebookAppBundle\Security\Authorization\Voter;
+namespace Caefer\FacebookCanvasAppBundle\Security\Authorization\Voter;
 
 use Symfony\Component\Security\Core\Authorization\Voter\VoterInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\RoleVoter;

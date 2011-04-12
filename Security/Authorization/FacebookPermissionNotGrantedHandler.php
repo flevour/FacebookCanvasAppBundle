@@ -1,13 +1,13 @@
 <?php
 
-namespace Caefer\FacebookAppBundle\Security\Authorization;
+namespace Caefer\FacebookCanvasAppBundle\Security\Authorization;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Http\Authorization\AccessDeniedHandlerInterface;
 use Symfony\Component\Security\Http\AccessMap;
 use Symfony\Component\Security\Core\SecurityContext;
-use Caefer\FacebookAppBundle\Security\Authorization\Voter\FacebookPermissionVoter;
+use Caefer\FacebookCanvasAppBundle\Security\Authorization\Voter\FacebookPermissionVoter;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\HttpKernel;
 
@@ -36,6 +36,6 @@ class FacebookPermissionNotGrantedHandler implements AccessDeniedHandlerInterfac
       array_walk($roles, function(&$e){$e = strtolower(str_replace('FACEBOOK_PERMISSION_', '', $e));});
 
       $params = array('perms' => implode(',', $roles), 'success' => $request->getRequestUri());
-      return $this->kernel->forward('CaeferFacebookAppBundle:Default:auth', $params);
+      return $this->kernel->forward('CaeferFacebookCanvasAppBundle:Default:auth', $params);
     }
 }

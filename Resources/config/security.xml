@@ -5,12 +5,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-      <parameter key="security.authorization.voter.class">Caefer\FacebookAppBundle\Security\Authorization\Voter\FacebookPermissionVoter</parameter>
+      <parameter key="security.authorization.voter.class">Caefer\FacebookCanvasAppBundle\Security\Authorization\Voter\FacebookPermissionVoter</parameter>
 
-      <parameter key="caefer_facebookapp.access_denied_handler.class">Caefer\FacebookAppBundle\Security\Authorization\FacebookPermissionNotGrantedHandler</parameter>
-      <parameter key="caefer_facebookapp.auth.class">Caefer\FacebookAppBundle\Security\Authentication\Provider\FacebookAppProvider</parameter>
-      <parameter key="caefer_facebookapp.security.authentication.listener.class">Caefer\FacebookAppBundle\Security\Firewall\FacebookAppListener</parameter>
-      <parameter key="caefer_facebookapp.security.authentication.entry_point.class">Caefer\FacebookAppBundle\Security\EntryPoint\FacebookAppAuthenticationEntryPoint</parameter>
+      <parameter key="caefer_facebook_canvas_app.access_denied_handler.class">Caefer\FacebookCanvasAppBundle\Security\Authorization\FacebookPermissionNotGrantedHandler</parameter>
+      <parameter key="caefer_facebook_canvas_app.auth.class">Caefer\FacebookCanvasAppBundle\Security\Authentication\Provider\FacebookCanvasAppProvider</parameter>
+      <parameter key="caefer_facebook_canvas_app.security.authentication.listener.class">Caefer\FacebookCanvasAppBundle\Security\Firewall\FacebookCanvasAppListener</parameter>
+      <parameter key="caefer_facebook_canvas_app.security.authentication.entry_point.class">Caefer\FacebookCanvasAppBundle\Security\EntryPoint\FacebookCanvasAppAuthenticationEntryPoint</parameter>
     </parameters>
 
     <services>
@@ -18,30 +18,30 @@
             <tag name="security.voter" />
         </service>
 
-        <service id="caefer_facebookapp.access_denied_handler" class="%caefer_facebookapp.access_denied_handler.class%">
+        <service id="caefer_facebook_canvas_app.access_denied_handler" class="%caefer_facebook_canvas_app.access_denied_handler.class%">
             <argument type="service" id="security.access_map" />
             <argument type="service" id="security.context" />
             <argument type="service" id="security.authorization.voter" />
             <argument type="service" id="http_kernel" />
         </service>
 
-        <service id="caefer_facebookapp.api" class="Facebook"> 
-            <file>%caefer_facebookapp.api.file%</file>
+        <service id="caefer_facebook_canvas_app.api" class="Facebook"> 
+            <file>%caefer_facebook_canvas_app.api.file%</file>
             <argument type="collection">
-              <argument key="appId">%caefer_facebookapp.api.app_id%</argument>
-              <argument key="secret">%caefer_facebookapp.api.secret%</argument>
+              <argument key="appId">%caefer_facebook_canvas_app.api.app_id%</argument>
+              <argument key="secret">%caefer_facebook_canvas_app.api.secret%</argument>
               <argument key="cookie">true</argument>
             </argument>
         </service>
 
-        <service id="caefer_facebookapp.auth" class="%caefer_facebookapp.auth.class%" public="false">
-            <argument type="service" id="caefer_facebookapp.api" />
+        <service id="caefer_facebook_canvas_app.auth" class="%caefer_facebook_canvas_app.auth.class%" public="false">
+            <argument type="service" id="caefer_facebook_canvas_app.api" />
         </service>
 
-        <service id="caefer_facebookapp.security.authentication.listener" class="%caefer_facebookapp.security.authentication.listener.class%" parent="security.authentication.listener.abstract" abstract="true" />
+        <service id="caefer_facebook_canvas_app.security.authentication.listener" class="%caefer_facebook_canvas_app.security.authentication.listener.class%" parent="security.authentication.listener.abstract" abstract="true" />
 
-        <service id="caefer_facebookapp.security.authentication.entry_point" class="%caefer_facebookapp.security.authentication.entry_point.class%" public="false" abstract="true">
-            <argument type="service" id="caefer_facebookapp.api" />
+        <service id="caefer_facebook_canvas_app.security.authentication.entry_point" class="%caefer_facebook_canvas_app.security.authentication.entry_point.class%" public="false" abstract="true">
+            <argument type="service" id="caefer_facebook_canvas_app.api" />
             <argument type="collection" />
             <argument type="service" id="security.access_map" />
             <argument type="service" id="http_kernel" />
