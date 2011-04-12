@@ -8,16 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
 {
-    public function __construct()
-    {
-        $this->fb = new \Facebook(array(
-            'appId'  => '123135494428911',
-            'secret' => '606536e73b92ca0d90dcd4a849b9eb02',
-            'cookie' => true
-        ));
-        $this->session = $this->fb->getSession();
-    }
-
     public function indexAction()
     {
         return $this->render('CaeferFacebookAppBundle:Default:index.html.twig');
@@ -25,8 +15,9 @@ class DefaultController extends Controller
 
     public function authAction($perms, $success = '')
     {
+        $fb = $this->container->get('caefer_facebookapp.api');
         $perms = explode(',',$perms);
-        return $this->render('CaeferFacebookAppBundle:Default:auth.html.twig', array('app_id' => $this->fb->getAppId(), 'session' => json_encode($this->fb->getSession()), 'perms' => $perms));
+        return $this->render('CaeferFacebookAppBundle:Default:auth.html.twig', array('app_id' => $fb->getAppId(), 'session' => json_encode($fb->getSession()), 'perms' => $perms));
     }
 
     public function secureAction()

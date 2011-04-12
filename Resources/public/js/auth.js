@@ -51,21 +51,8 @@ window.FBApp={
   },
   resolve:function(success)
   {
-    if (false != success) {
-        img = new Image();
-        img.src = 'http://dev.local/app_dev.php/login_check';
-        FBApp.reloadWhenAuthorized(img);
-    }
-  },
-  reloadWhenAuthorized: function(img)
-  { 
-    if(!img.complete){ 
-      imgWait=setTimeout('FBApp.reloadWhenAuthorized(img)', 50); 
-    } 
-    else
-    {
-      window.location.reload();
-    }
+    window.location.href = '/app_dev.php/login_check';
+    //window.location.href = 'http://dev.local/app_dev.php/login_check';
   } 
 }
 
